@@ -3,6 +3,11 @@ export interface LoginResponse {
     redirectUrl?: string;
 }
 
+export interface User {
+    username: string;
+    role: string;
+}
+
 export const loginUser = async (username: string, password: string): Promise<LoginResponse> => {
     try {
         const response = await fetch("http://localhost:8080/auth/generateToken", {
@@ -60,7 +65,7 @@ export const setAuthToken = (token: string): void => {
     document.cookie = `jwtToken=${token}; Path=/; SameSite=Strict`;
 };
 
-export const getUserData = async (token: string) => {
+export const getUserData = async (token: string): Promise<User> => {
     try {
         const response = await fetch('http://localhost:8080/auth/me', {
             method: 'GET',

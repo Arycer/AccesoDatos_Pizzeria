@@ -18,8 +18,8 @@ const RegisterForm: React.FC = () => {
             return;
         }
 
-        if (password.length < 6) {
-            setErrorMsg('La contraseña debe tener al menos 6 caracteres.');
+        if (password.length < 5) {
+            setErrorMsg('La contraseña debe tener al menos 5 caracteres.');
             return;
         }
 
@@ -77,9 +77,9 @@ const RegisterForm: React.FC = () => {
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Mínimo 6 caracteres"
+                            placeholder="Mínimo 5 caracteres"
                             required
-                            minLength={6}
+                            minLength={5}
                         />
                     </div>
 

@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserData, logout } from '../services/authService';
-
-interface User {
-    username: string;
-    role: string;
-}
+import {getUserData, logout, User} from '../services/authService';
 
 const Dashboard: React.FC = () => {
     const [user, setUser] = useState<User | null>(null);
