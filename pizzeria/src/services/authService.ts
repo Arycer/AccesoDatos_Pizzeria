@@ -88,6 +88,7 @@ export const getUserData = async (token: string): Promise<User> => {
 
 export const logout = () => {
     localStorage.removeItem("token");
+    document.cookie = "jwtToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Strict";
 };
 
 export const getUserRole = (): string | null => {
