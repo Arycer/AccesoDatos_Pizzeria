@@ -1,42 +1,140 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');
+
+/* Establecer la fuente base de la aplicación */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Definimos la fuente principal para el cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Aplicar fuente Poppins para los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Títulos principales (como el título de "Pizzería Pom") */
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.card {
-  padding: 2em;
+/* Estilo para párrafos */
+p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
 }
 
-.read-the-docs {
-  color: #888;
+/* Aseguramos que todos los enlaces tengan un color coherente */
+a {
+    text-decoration: none;
+    color: #4e73df;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2e59d9;
+}
+
+/* Estilo de los botones */
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Estilo de los botones principales */
+button.primary-btn {
+    background-color: #4e73df;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+button.primary-btn:hover {
+    background-color: #2e59d9;
+    transform: translateY(-3px);
+}
+
+/* Estilo de los botones deshabilitados */
+button.primary-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilo de los inputs y selects de la aplicación */
+input, select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #4e73df;
+    outline: none;
+    box-shadow: 0 0 5px rgba(78, 115, 223, 0.5);
+}
+
+/* Estilo para los mensajes de error */
+.error-message {
+    color: #f44336;
+    background-color: #f8d7da;
+    border: 1px solid #f44336;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Contenedor global para centrar contenido */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .registerContainer {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .registerTitle {
+        font-size: 1.5rem;
+    }
 }

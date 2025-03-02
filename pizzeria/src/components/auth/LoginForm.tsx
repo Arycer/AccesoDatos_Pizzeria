@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser, setAuthToken } from '../../services/authService';
+import styles from './LoginForm.module.css'; // Importa el módulo CSS
 
 const LoginForm: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -33,12 +34,12 @@ const LoginForm: React.FC = () => {
     };
 
     return (
-        <div className="login-wrapper">
-            <h1 className="title">PIZZERÍA POM</h1>
-            <div className="login-container">
-                <h2 className="login-title">Iniciar sesión</h2>
-                <form onSubmit={handleSubmit} className="login-form">
-                    <div className="input-group">
+        <div className={styles['login-wrapper']}>
+            <h1 className={styles.title}>PIZZERÍA POM</h1>
+            <div className={styles['login-container']}>
+                <h2 className={styles['login-title']}>Iniciar sesión</h2>
+                <form onSubmit={handleSubmit} className={styles['login-form']}>
+                    <div className={styles['input-group']}>
                         <label htmlFor="username">Usuario</label>
                         <input
                             type="text"
@@ -53,7 +54,7 @@ const LoginForm: React.FC = () => {
                         />
                     </div>
 
-                    <div className="input-group">
+                    <div className={styles['input-group']}>
                         <label htmlFor="password">Contraseña</label>
                         <input
                             type="password"
@@ -68,19 +69,19 @@ const LoginForm: React.FC = () => {
                         />
                     </div>
 
-                    <button type="submit" className="login-button btn" disabled={loading}>
+                    <button type="submit" className={`${styles['login-button']} ${styles.btn}`} disabled={loading}>
                         {loading ? 'Cargando...' : 'Ingresar'}
                     </button>
                 </form>
 
                 {errorMsg && (
-                    <div id="errorMsg" className="error-message" aria-live="polite">
+                    <div id="errorMsg" className={styles['error-message']} aria-live="polite">
                         {errorMsg}
                     </div>
                 )}
 
-                <p className="login-footer">
-                    ¿No tienes cuenta? <a href="/auth/register" className="register-link">Regístrate aquí</a>
+                <p className={styles['login-footer']}>
+                    ¿No tienes cuenta? <a href="/auth/register" className={styles['register-link']}>Regístrate aquí</a>
                 </p>
             </div>
         </div>

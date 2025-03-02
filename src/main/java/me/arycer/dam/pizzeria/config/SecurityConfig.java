@@ -64,10 +64,9 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                                 // Rutas públicas (sin autenticación)
-                                .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken").permitAll()
+                                .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/addNewUser").permitAll()
 //                        .requestMatchers("/auth/user/**", "/auth/pizzas", "/auth/hacerPedido", "/auth/mis_pedidos").hasRole("CLIENTE")
 //                        .requestMatchers("/auth/admin/**", "/auth/panel_admin", "/auth/agregar_pizza", "/auth/editar_pizza/{id}").hasRole("ADMIN")
-                                .requestMatchers("/auth/addNewUser").hasRole("ADMIN")
 
                                 // Seguridad en pizzas (ver todas permitido, modificar solo ADMIN)
                                 .requestMatchers(HttpMethod.GET, "/api/pizzas").permitAll()

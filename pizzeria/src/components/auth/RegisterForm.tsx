@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { checkUsernameAvailability, registerUser } from '../../services/authService';
+import styles from './RegisterForm.module.css'; // Importación de CSS Modules
 
 const RegisterForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');
@@ -40,13 +41,13 @@ const RegisterForm: React.FC = () => {
     };
 
     return (
-        <div className="register-wrapper">
-            <h1 className="title">PIZZERÍA POM</h1>
-            <div className="register-container">
-                <h2 className="register-title">Registrarse</h2>
+        <div className={styles.registerWrapper}>
+            <h1 className={styles.title}>PIZZERÍA POM</h1>
+            <div className={styles.registerContainer}>
+                <h2 className={styles.registerTitle}>Registrarse</h2>
 
-                <form onSubmit={handleSubmit} className="register-form">
-                    <div className="input-group">
+                <form onSubmit={handleSubmit} className={styles.registerForm}>
+                    <div className={styles.inputGroup}>
                         <label htmlFor="username">Nombre de usuario</label>
                         <input
                             type="text"
@@ -58,7 +59,7 @@ const RegisterForm: React.FC = () => {
                         />
                     </div>
 
-                    <div className="input-group">
+                    <div className={styles.inputGroup}>
                         <label htmlFor="email">Correo electrónico</label>
                         <input
                             type="email"
@@ -70,7 +71,7 @@ const RegisterForm: React.FC = () => {
                         />
                     </div>
 
-                    <div className="input-group">
+                    <div className={styles.inputGroup}>
                         <label htmlFor="password">Contraseña</label>
                         <input
                             type="password"
@@ -83,7 +84,7 @@ const RegisterForm: React.FC = () => {
                         />
                     </div>
 
-                    <div className="input-group">
+                    <div className={styles.inputGroup}>
                         <label htmlFor="role">Rol</label>
                         <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
                             <option value="CLIENTE">Cliente</option>
@@ -91,16 +92,16 @@ const RegisterForm: React.FC = () => {
                         </select>
                     </div>
 
-                    <button type="submit" className="btn" disabled={loading}>
+                    <button type="submit" className={styles.btn} disabled={loading}>
                         {loading ? 'Registrando...' : 'Registrarse'}
                     </button>
                 </form>
 
-                <p className="register-footer">
-                    ¿Ya tienes cuenta? <a href="/auth/login" className="register-link">Inicia sesión</a>
+                <p className={styles.registerFooter}>
+                    ¿Ya tienes cuenta? <a href="/auth/login" className={styles.registerLink}>Inicia sesión</a>
                 </p>
 
-                {errorMsg && <div id="errorMsg" className="error-message" aria-live="polite">{errorMsg}</div>}
+                {errorMsg && <div id="errorMsg" className={styles.errorMessage} aria-live="polite">{errorMsg}</div>}
             </div>
         </div>
     );
