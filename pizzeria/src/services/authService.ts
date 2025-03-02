@@ -1,3 +1,5 @@
+import {jwtDecode} from "jwt-decode";
+
 export interface LoginResponse {
     token: string;
     redirectUrl?: string;
@@ -86,4 +88,25 @@ export const getUserData = async (token: string): Promise<User> => {
 
 export const logout = () => {
     localStorage.removeItem("token");
+};
+
+export const getUserRole = (): string | null => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        return null;
+    }
+
+    try {
+        const decoded: any = jwtDecode(token);
+        if (decoded && decoded.rol) {
+            return decoded.rol;
+        } else {
+            console.warn("El token no contiene el campo 'role'.");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error al decodificar el token:", error);
+        return null;
+    }
 };
