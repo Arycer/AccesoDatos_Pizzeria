@@ -4,7 +4,6 @@ import lombok.*;
 
 /**
  * Clase que representa una solicitud de autenticación.
- *
  * Contiene las credenciales del usuario necesarias para la autenticación.
  */
 @Getter

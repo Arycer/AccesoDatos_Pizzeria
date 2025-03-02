@@ -15,9 +15,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Document(collection = "usuarios")
 public class UserInfo {
-
-    // Getters y setters
-    // Atributos
     @Id
     private String id;
 
@@ -27,5 +24,4 @@ public class UserInfo {
     @NotBlank(message = "Debes introducir una contraseña")
     private String password;
     private String roles; // CLIENTE Y ADMIN
-
 }

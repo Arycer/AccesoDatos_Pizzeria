@@ -19,6 +19,7 @@ import java.util.function.Function;
  * Se usa en la autenticación y autorización de usuarios en la aplicación.
  */
 @Component
+@SuppressWarnings("deprecation")
 public class JwtService {
 
     // Clave secreta para firmar los tokens JWT.
@@ -89,6 +90,6 @@ public class JwtService {
     //  Extrae el rol del usuario desde el token JWT.
     public String extractRole(String token) {
         Claims claims = extractAllClaims(token);
-        return claims.get("rol", String.class); // 🔹 Extrae el rol como String
+        return claims.get("rol", String.class);
     }
 }
