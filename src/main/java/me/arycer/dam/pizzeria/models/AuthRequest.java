@@ -12,10 +12,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthRequest {
-
-    // Getters y setters
-    // Atributos
     private String username;
     private String password;
-
 }

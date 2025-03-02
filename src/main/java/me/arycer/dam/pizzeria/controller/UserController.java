@@ -47,6 +47,7 @@ public class UserController {
     /**
      * Endpoint público que no requiere autenticación.
      * Devuelve un mensaje de bienvenida.
+     *
      * @return Mensaje de bienvenida.
      */
     @GetMapping("/welcome")
@@ -56,9 +57,10 @@ public class UserController {
 
     /**
      * Verifica si un nombre de usuario ya está en uso.
+     *
      * @param username Nombre de usuario a verificar.
      * @return ResponseEntity con estado HTTP 200 si el nombre de usuario está disponible,
-     *         o estado HTTP 400 con un mensaje de error si ya está en uso.
+     * o estado HTTP 400 con un mensaje de error si ya está en uso.
      */
     @GetMapping("/checkUsername")
     public ResponseEntity<?> checkUsername(@RequestParam String username) {
@@ -71,9 +73,10 @@ public class UserController {
 
     /**
      * Registra un nuevo usuario en el sistema.
+     *
      * @param userInfo Objeto UserInfo con los datos del nuevo usuario.
      * @return ResponseEntity con un mensaje de éxito si el usuario se registra correctamente,
-     *         o un mensaje de error con el estado HTTP correspondiente si falla el registro.
+     * o un mensaje de error con el estado HTTP correspondiente si falla el registro.
      */
     @PostMapping("/addNewUser")
     public ResponseEntity<?> addNewUser(@Valid @RequestBody UserInfo userInfo) {
@@ -88,6 +91,7 @@ public class UserController {
     /**
      * Endpoint accesible solo para usuarios con el rol 'CLIENTE'.
      * Devuelve un mensaje de bienvenida al perfil de cliente.
+     *
      * @return Mensaje de bienvenida al perfil de cliente.
      */
     @GetMapping("/user/userProfile")
@@ -99,6 +103,7 @@ public class UserController {
     /**
      * Endpoint accesible solo para usuarios con el rol 'ADMIN'.
      * Devuelve un mensaje de bienvenida al perfil de administrador.
+     *
      * @return Mensaje de bienvenida al perfil de administrador.
      */
     @GetMapping("/admin/adminProfile")
@@ -110,10 +115,11 @@ public class UserController {
     /**
      * Autentica a un usuario y genera un token JWT si las credenciales son válidas.
      * Además, configura una cookie con el token JWT para su uso posterior.
+     *
      * @param authRequest Objeto AuthRequest con las credenciales del usuario (username y password).
-     * @param response HttpServletResponse para configurar la cookie con el token JWT.
+     * @param response    HttpServletResponse para configurar la cookie con el token JWT.
      * @return ResponseEntity con un mensaje de éxito, el token JWT y una URL de redirección
-     *         si la autenticación es exitosa, o un mensaje de error con estado HTTP 401 si falla.
+     * si la autenticación es exitosa, o un mensaje de error con estado HTTP 401 si falla.
      */
     @PostMapping("/generateToken")
     public ResponseEntity<?> authenticateAndGetToken(@RequestBody AuthRequest authRequest, HttpServletResponse response) {
@@ -150,6 +156,7 @@ public class UserController {
     /**
      * Endpoint para obtener la información del usuario autenticado.
      * Este endpoint devolverá el nombre de usuario y el rol del usuario autenticado.
+     *
      * @param request HttpServletRequest para obtener el token JWT desde la cabecera Authorization.
      * @return ResponseEntity con la información del usuario (username y role) o un error si no está autenticado.
      */

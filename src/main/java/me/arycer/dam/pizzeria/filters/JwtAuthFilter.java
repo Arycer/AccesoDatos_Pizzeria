@@ -38,11 +38,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     /**
      * Intercepta cada solicitud entrante, verifica la presencia de un token JWT,
      * lo valida y establece la autenticación en el contexto de seguridad si es válido.
-     * @param request la solicitud HTTP entrante
-     * @param response la respuesta HTTP
+     *
+     * @param request     la solicitud HTTP entrante
+     * @param response    la respuesta HTTP
      * @param filterChain la cadena de filtros de la solicitud
      * @throws ServletException en caso de error en la ejecución del filtro
-     * @throws IOException en caso de error de entrada/salida
+     * @throws IOException      en caso de error de entrada/salida
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

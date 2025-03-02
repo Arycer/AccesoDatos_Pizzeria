@@ -29,6 +29,7 @@ public class UserInfoService implements UserDetailsService {
 
     /**
      * Carga un usuario por su nombre de usuario.
+     *
      * @param username Nombre de usuario a buscar.
      * @return Los detalles del usuario si existe.
      * @throws UsernameNotFoundException Si el usuario no es encontrado en la base de datos.
@@ -44,6 +45,7 @@ public class UserInfoService implements UserDetailsService {
 
     /**
      * Agrega un nuevo usuario al sistema.
+     *
      * @param userInfo Objeto que contiene la información del usuario a registrar.
      * @return Mensaje de éxito si el usuario es registrado correctamente.
      * @throws ResponseStatusException Si el nombre de usuario ya está en uso.

@@ -42,6 +42,7 @@ public class SecurityConfig {
 
     /**
      * Configura el servicio de detalles de usuario.
+     *
      * @return el servicio de detalles de usuario
      */
     @Bean
@@ -51,6 +52,7 @@ public class SecurityConfig {
 
     /**
      * Configura la cadena de filtros de seguridad.
+     *
      * @param http el objeto HttpSecurity para configurar las reglas de seguridad
      * @return la cadena de filtros de seguridad
      * @throws Exception en caso de error en la configuración
@@ -61,24 +63,25 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        // Rutas públicas (sin autenticación)
-                        .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken").permitAll()
+                                // Rutas públicas (sin autenticación)
+                                .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken").permitAll()
 //                        .requestMatchers("/auth/user/**", "/auth/pizzas", "/auth/hacerPedido", "/auth/mis_pedidos").hasRole("CLIENTE")
 //                        .requestMatchers("/auth/admin/**", "/auth/panel_admin", "/auth/agregar_pizza", "/auth/editar_pizza/{id}").hasRole("ADMIN")
-                        .requestMatchers("/auth/addNewUser").hasRole("ADMIN")
+                                .requestMatchers("/auth/addNewUser").hasRole("ADMIN")
 
-                        // Seguridad en pizzas (ver todas permitido, modificar solo ADMIN)
-                        .requestMatchers(HttpMethod.GET, "/api/pizzas").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/pizzas").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/pizzas/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/pizzas/**").hasRole("ADMIN")
+                                // Seguridad en pizzas (ver todas permitido, modificar solo ADMIN)
+                                .requestMatchers(HttpMethod.GET, "/api/pizzas").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/api/pizzas").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/pizzas/**").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/pizzas/**").hasRole("ADMIN")
 
-                        // Seguridad en pedidos
-                        .requestMatchers(HttpMethod.POST,  "/api/pedidos").hasRole("CLIENTE")
-                        .requestMatchers(HttpMethod.GET,  "/auth/pizzas","/api/pedidos/misPedidos").hasRole("CLIENTE")
-                        .requestMatchers(HttpMethod.GET, "/api/pedidos").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/pedidos/{id}").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                                // Seguridad en pedidos
+                                .requestMatchers(HttpMethod.POST, "/api/pedidos").hasRole("CLIENTE")
+                                .requestMatchers(HttpMethod.POST, "/api/pedidos/crearPedido").hasRole("CLIENTE")
+                                .requestMatchers(HttpMethod.GET, "/auth/pizzas", "/api/pedidos/misPedidos").hasRole("CLIENTE")
+                                .requestMatchers(HttpMethod.GET, "/api/pedidos").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/pedidos/{id}").hasRole("ADMIN")
+                                .anyRequest().authenticated()
                 )
                 // Control de acceso denegado
                 .exceptionHandling(exception -> exception.accessDeniedPage("/error/acceso-denegado"))
@@ -91,6 +94,7 @@ public class SecurityConfig {
 
     /**
      * Configura el codificador de contraseñas.
+     *
      * @return el codificador de contraseñas BCrypt
      */
     @Bean
@@ -100,6 +104,7 @@ public class SecurityConfig {
 
     /**
      * Configura el proveedor de autenticación.
+     *
      * @return el proveedor de autenticación DaoAuthenticationProvider
      */
     @Bean
@@ -112,6 +117,7 @@ public class SecurityConfig {
 
     /**
      * Configura el gestor de autenticación.
+     *
      * @param config la configuración de autenticación
      * @return el gestor de autenticación
      * @throws Exception en caso de error en la configuración
@@ -123,6 +129,7 @@ public class SecurityConfig {
 
     /**
      * Configura la política de CORS para permitir peticiones del frontend.
+     *
      * @return la configuración de CORS
      */
     @Bean
