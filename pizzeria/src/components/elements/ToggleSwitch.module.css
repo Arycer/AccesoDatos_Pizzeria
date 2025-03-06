@@ -1,0 +1,29 @@
+.toggleSwitch {
+    position: relative;
+    width: 70px;
+    height: 36px;
+    background-color: #f44336; /* rojo inactivo */
+    border-radius: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.active {
+    background-color: #4caf50; /* verde activo */
+}
+
+.toggleSwitch::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.active::after {
+    transform: translateX(34px);
+}
