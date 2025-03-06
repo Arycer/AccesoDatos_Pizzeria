@@ -27,10 +27,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-/**
- * Configuración de seguridad para la aplicación PomPizza.
- * Define la seguridad de las rutas, el manejo de autenticación JWT y la configuración de CORS.
- */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -40,41 +36,27 @@ public class SecurityConfig {
     @Lazy
     private JwtAuthFilter authFilter;
 
-    /**
-     * Configura el servicio de detalles de usuario.
-     *
-     * @return el servicio de detalles de usuario
-     */
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserInfoService();
     }
 
-    /**
-     * Configura la cadena de filtros de seguridad.
-     *
-     * @param http el objeto HttpSecurity para configurar las reglas de seguridad
-     * @return la cadena de filtros de seguridad
-     * @throws Exception en caso de error en la configuración
-     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                                // Rutas públicas (sin autenticación)
+                                // Público
                                 .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/addNewUser").permitAll()
-//                        .requestMatchers("/auth/user/**", "/auth/pizzas", "/auth/hacerPedido", "/auth/mis_pedidos").hasRole("CLIENTE")
-//                        .requestMatchers("/auth/admin/**", "/auth/panel_admin", "/auth/agregar_pizza", "/auth/editar_pizza/{id}").hasRole("ADMIN")
 
-                                // Seguridad en pizzas (ver todas permitido, modificar solo ADMIN)
-                                .requestMatchers(HttpMethod.GET, "/api/pizzas").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/pizzas").hasRole("ADMIN")
+                                // Administrador
+                                .requestMatchers(HttpMethod.GET, "/api/pizzas/**").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/api/pizzas/**").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT, "/api/pizzas/**").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.DELETE, "/api/pizzas/**").hasRole("ADMIN")
 
-                                // Seguridad en pedidos
+                                /* Pedidos */
                                 .requestMatchers(HttpMethod.POST, "/api/pedidos").hasRole("CLIENTE")
                                 .requestMatchers(HttpMethod.POST, "/api/pedidos/crearPedido").hasRole("CLIENTE")
                                 .requestMatchers(HttpMethod.GET, "/auth/pizzas", "/api/pedidos/misPedidos").hasRole("CLIENTE")

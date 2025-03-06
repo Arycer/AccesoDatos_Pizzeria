@@ -9,32 +9,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Representa un pedido en la base de datos MongoDB
- */
 @Setter
 @Getter
 @Data
 @NoArgsConstructor
 @Document(collection = "pedidos")
-public class Pedido {
+public class Order {
 
     @Id
     private String id;
     private String clienteUsername;
-    private List<PizzaPedido> pizzas;
+    private List<PizzaOrder> pizzas;
     private double total;
 
     private Date fecha;
     private String estado;
 
-    // Constructor con parámetros
-    public Pedido(String clienteId, List<PizzaPedido> pizzas, String estado) {
+    public Order(String clienteId, List<PizzaOrder> pizzas, String estado) {
         this.clienteUsername = clienteId;
         this.pizzas = pizzas;
-        this.total = pizzas.stream().mapToDouble(PizzaPedido::getPrecio).sum(); // cálculo automático del total
+        this.total = pizzas.stream().mapToDouble(PizzaOrder::getPrecio).sum();
         this.fecha = new Date();
         this.estado = estado;
     }
-
 }

@@ -8,11 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Servicio para gestionar las operaciones relacionadas con las pizzas.
- * Proporciona métodos para crear, actualizar, eliminar y obtener pizzas
- * desde la base de datos.
- */
 @Service
 public class PizzaService {
     private final PizzaRepository pizzaRepository;
@@ -21,45 +16,23 @@ public class PizzaService {
         this.pizzaRepository = pizzaRepository;
     }
 
-    /**
-     * Método para obtener todas las pizzas en la bbd
-     * @return lista de pizzas en la bbdd
-     */
-    public List<Pizza> obtenerTodasLasPizzas() {
+    public List<Pizza> getAll() {
         return pizzaRepository.findAll();
     }
 
-    /**
-     * Método para obtener solo las pizzas que se encuentran disponibles
-     * @return una lista con las pizzas disponibles
-     */
-    public List<Pizza> obtenerPizzasDisponibles() {
-        return pizzaRepository.findByDisponibleTrue();
+    public List<Pizza> getAvailable() {
+        return pizzaRepository.getAvailable();
     }
 
-    /**
-     * Método para obtener una pizza por un identificador
-     * @param id identificador único de la pizza
-     * @return el objeto pizza encontrado
-     */
-    public Optional<Pizza> obtenerPizzaPorId(String id) {
+    public Optional<Pizza> getById(String id) {
         return pizzaRepository.findById(id);
     }
 
-    /**
-     * Método para añadir una pizza a la base de datos
-     * @param pizza objeto pizza a añadir
-     */
-    public Pizza agregarPizza(Pizza pizza) {
+    public Pizza add(Pizza pizza) {
         return pizzaRepository.save(pizza);
     }
 
-    /**
-     * Método para actualizar los atributos de una pizza
-     * @param id identificador de la pizza a actualizar
-     * @param pizzaActualizada objeto con los datos nuevos que se quieren actualizar
-     */
-    public Pizza actualizarPizza(String id, Pizza pizzaActualizada) {
+    public Pizza update(String id, Pizza pizzaActualizada) {
         Optional<Pizza> optionalPizza = pizzaRepository.findById(id);
 
         if (optionalPizza.isPresent()) {
@@ -78,10 +51,6 @@ public class PizzaService {
         }
     }
 
-    /**
-     * Método para eliminar una pizza de la base de datos
-     * @param id identificador de la pizza que se desea eliminar
-     */
     public void eliminarPizza(String id) {
         pizzaRepository.deleteById(id);
     }

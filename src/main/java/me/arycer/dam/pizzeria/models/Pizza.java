@@ -9,18 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-/**
- * Representa una pizza en la base de datos MongoDb.
- */
 @Getter
 @Setter
 @Data
 @NoArgsConstructor
 @Document(collection = "pizzas")
 public class Pizza {
-
-    // Getters and setters
-    // Atributos
     @Id
     private String id;
     private String nombre;
@@ -30,7 +24,6 @@ public class Pizza {
     private String imagenUrl;
     private boolean disponible;
 
-    // Constructor
     public Pizza(String id, String nombre, String descripcion, List<String> ingredientes, double precio, String imagenUrl, boolean disponible) {
         this.id = id;
         this.nombre = nombre;
@@ -40,5 +33,4 @@ public class Pizza {
         this.imagenUrl = imagenUrl;
         this.disponible = disponible;
     }
-
 }

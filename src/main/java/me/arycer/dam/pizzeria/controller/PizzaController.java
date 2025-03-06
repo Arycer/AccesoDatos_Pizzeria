@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Controlador REST para gestionar pizzas en la aplicación.
- * Proporciona endpoints para realizar operaciones CRUD sobre las pizzas.
- */
 @RestController
 @RequestMapping("/api/pizzas")
 public class PizzaController {
@@ -21,68 +17,39 @@ public class PizzaController {
         this.pizzaService = pizzaService;
     }
 
-    /**
-     * Método que obtiene la lista de todas las pizzas
-     * @return la lista de pizzas y el código de estado 200 OK.
-     */
     @GetMapping
-    public List<Pizza> obtenerTodasLasPizzas() {
-        return pizzaService.obtenerTodasLasPizzas();
+    public List<Pizza> getAll() {
+        return pizzaService.getAll();
     }
 
-    /**
-     * Método que obtiene la lista de todas las pizzas que se encuentran disponibles
-     * @return lista de pizzas y el código de estado 200 OK
-     */
-    @GetMapping("/disponibles")
+    @GetMapping("/available")
     @PreAuthorize("hasAuthority('ROLE_CLIENTE')")
-    public List<Pizza> obtenerPizzasDisponibles() {
-        return pizzaService.obtenerPizzasDisponibles();
+    public List<Pizza> getAvailable() {
+        return pizzaService.getAvailable();
     }
 
-    /**
-     * Método que obtiene una pizza por su identificador
-     * @param id identificador de la pizza que se desea buscar
-     * @return la pizza encontrada y el código 200 OK, o 404 Not Found si no se encuentra
-     */
     @GetMapping("/{id}")
-    public ResponseEntity<Pizza> obtenerPizzaPorId(@PathVariable String id) {
-        return pizzaService.obtenerPizzaPorId(id)
+    public ResponseEntity<Pizza> getById(@PathVariable String id) {
+        return pizzaService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Método que añade una pizza a la base de datos
-     * @param pizza objeto pizza que se quiere añadir
-     * @return la pizza creada y el código 201 created
-     */
     @PostMapping
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public ResponseEntity<Pizza> agregarPizza(@RequestBody Pizza pizza) {
-        return ResponseEntity.ok(pizzaService.agregarPizza(pizza));
+    public ResponseEntity<Pizza> add(@RequestBody Pizza pizza) {
+        return ResponseEntity.ok(pizzaService.add(pizza));
     }
 
-    /**
-     * Método que actualiza los datos de una pizza en la base de datos
-     * @param id identificador de la pizza que se desea actualizar
-     * @param pizza objeto pizza con los datos nuevos
-     * @return la pizza actualizada y código 200 OK, o 404 Not Found si la pizza no existe.
-     */
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public ResponseEntity<Pizza> actualizarPizza(@PathVariable String id, @RequestBody Pizza pizza) {
-        return ResponseEntity.ok(pizzaService.actualizarPizza(id, pizza));
+    public ResponseEntity<Pizza> update(@PathVariable String id, @RequestBody Pizza pizza) {
+        return ResponseEntity.ok(pizzaService.update(id, pizza));
     }
 
-    /**
-     * Método para eliminar una pizza por su identificador
-     * @param id identificador de la pizza que se quiere eliminar
-     * @return código 204 si se ha eliminado correctamente, o 404 si no se ha encontrado la pizza.
-     */
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public ResponseEntity<Void> eliminarPizza(@PathVariable String id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         pizzaService.eliminarPizza(id);
         return ResponseEntity.noContent().build();
     }
