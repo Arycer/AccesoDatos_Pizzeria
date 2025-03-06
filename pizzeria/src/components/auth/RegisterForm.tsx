@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { checkUsernameAvailability, registerUser } from '../../services/authService';
-import styles from './RegisterForm.module.css'; // Importación de CSS Modules
+import styles from './RegisterForm.module.css';
 
 const RegisterForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');

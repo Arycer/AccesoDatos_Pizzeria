@@ -63,7 +63,6 @@
     margin-bottom: 15px;
 }
 
-/* Agrupa los botones al final del formulario */
 .buttonGroup {
     display: flex;
     justify-content: flex-end;
@@ -71,7 +70,6 @@
     margin-top: 15px;
 }
 
-/* Botón de cancelar con estilo personalizado */
 .cancelButton {
     background-color: #ccc;
     color: #333;

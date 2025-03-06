@@ -2,14 +2,14 @@
     position: relative;
     width: 70px;
     height: 36px;
-    background-color: #f44336; /* rojo inactivo */
+    background-color: #f44336;
     border-radius: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .active {
-    background-color: #4caf50; /* verde activo */
+    background-color: #4caf50;
 }
 
 .toggleSwitch::after {

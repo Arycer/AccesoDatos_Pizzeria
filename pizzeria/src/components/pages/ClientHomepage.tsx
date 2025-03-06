@@ -1,4 +1,3 @@
-// src/pages/ClientHomepage.tsx
 import React from 'react';
 import styles from './ClientHomepage.module.css';
 

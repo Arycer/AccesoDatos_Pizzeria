@@ -1,4 +1,3 @@
-// src/pages/AdminOrdersPage.tsx
 import React, { useEffect, useState } from 'react';
 import { Pedido, getAllOrders, updateOrderStatus } from '../../services/orderService';
 import AdminOrderItem from './AdminOrderItem.tsx';

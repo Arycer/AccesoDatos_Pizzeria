@@ -1,4 +1,3 @@
-// PizzaItem.tsx
 import React from 'react';
 import { Pizza } from '../../services/pizzaService';
 import ToggleSwitch from '../elements/ToggleSwitch';
@@ -10,7 +9,7 @@ interface PizzaItemProps {
     onEdit: (pizza: Pizza) => void;
     onDelete: (id: string) => void;
     onToggleAvailability: (pizza: Pizza, newAvailability: boolean) => void;
-    onAddToCart?: (pizza: Pizza) => void; // propiedad opcional para añadir al carrito
+    onAddToCart?: (pizza: Pizza) => void;
 }
 
 const PizzaItem: React.FC<PizzaItemProps> = ({

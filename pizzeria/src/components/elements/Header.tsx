@@ -34,7 +34,7 @@ const Header: React.FC = () => {
                     className={styles.clickableTitle}
                     onClick={() => navigate('/home')}
                 >
-                    Pizzeria
+                    Pizzeria Deliciosa
                 </h1>
             </div>
             <div className={styles.right}>

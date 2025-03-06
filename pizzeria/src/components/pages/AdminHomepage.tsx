@@ -1,4 +1,3 @@
-// src/pages/AdminHomepage.tsx
 import React, { useEffect, useState } from 'react';
 import { Pedido, getAllOrders } from '../../services/orderService';
 import styles from './AdminHomepage.module.css';
@@ -24,12 +23,10 @@ const AdminHomepage: React.FC = () => {
         fetchOrders();
     }, []);
 
-    // Calcular fecha hace 7 días desde hoy
     const now = new Date();
     const oneWeekAgo = new Date(now);
     oneWeekAgo.setDate(now.getDate() - 7);
 
-    // Filtrar pedidos realizados en la última semana
     const ordersLastWeek = orders.filter(
         (order) => new Date(order.fecha) >= oneWeekAgo
     );

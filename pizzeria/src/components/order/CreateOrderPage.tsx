@@ -1,4 +1,3 @@
-// src/pages/CreateOrderPage.tsx
 import React, { useEffect, useState } from 'react';
 import PizzaItem from '../../components/pizza/PizzaItem';
 import Cart, { CartItem } from './Cart';
@@ -44,7 +43,6 @@ const CreateOrderPage: React.FC = () => {
                     if (item.quantity > 1) {
                         acc.push({ pizza: item.pizza, quantity: item.quantity - 1 });
                     }
-                    // Si la cantidad es 1, se elimina el item
                 } else {
                     acc.push(item);
                 }
@@ -63,8 +61,6 @@ const CreateOrderPage: React.FC = () => {
             return;
         }
 
-        // Crear la lista de pizzas para el pedido.
-        // Se agrega una entrada por cada unidad en el carrito.
         const pizzasPedidos = cart.flatMap(item =>
             Array.from({ length: item.quantity }, () => ({
                 nombre: item.pizza.nombre,
@@ -72,13 +68,11 @@ const CreateOrderPage: React.FC = () => {
             }))
         );
 
-        // Calcular el total del pedido.
         const total = pizzasPedidos.reduce((sum, pizza) => sum + pizza.precio, 0);
 
         // Construir el objeto pedido.
-        // Nota: 'clienteUsername' puede quedar vacío ya que el backend lo asigna en base al token.
         const order = {
-            clienteUsername: "",
+            clienteUsername: "", // Vacío porque se maneja en el serverside con la sesión
             pizzas: pizzasPedidos,
             total,
             fecha: new Date(),
@@ -89,7 +83,7 @@ const CreateOrderPage: React.FC = () => {
             const newOrder = await createOrder(order);
             console.log("Pedido creado:", newOrder);
             alert("Pedido enviado correctamente.");
-            setCart([]); // Limpiar el carrito tras enviar el pedido
+            setCart([]);
         } catch (error) {
             console.error("Error al enviar el pedido:", error);
             alert("Error al enviar el pedido. Por favor, inténtalo de nuevo.");
@@ -124,13 +118,9 @@ const CreateOrderPage: React.FC = () => {
                         onAddToCart={handleAddToCart}
                         onRemoveFromCart={handleRemoveFromCart}
                         onClearCart={handleClearCart}
+                        onSubmitOrder={handleSubmitOrder}
                     />
                 </div>
-            </div>
-            <div>
-                <button className={styles.submitButton} onClick={handleSubmitOrder}>
-                    Enviar Pedido
-                </button>
             </div>
         </div>
     );

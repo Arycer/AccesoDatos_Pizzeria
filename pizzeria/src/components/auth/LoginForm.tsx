@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser, setAuthToken } from '../../services/authService';
-import styles from './LoginForm.module.css'; // Importa el módulo CSS
+import styles from './LoginForm.module.css';
 
 const LoginForm: React.FC = () => {
     const [username, setUsername] = useState('');

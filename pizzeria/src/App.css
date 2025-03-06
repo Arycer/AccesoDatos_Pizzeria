@@ -1,7 +1,5 @@
-/* Importación de fuentes de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');
 
-/* RESET: Eliminamos márgenes y paddings */
 *,
 *::before,
 *::after {
@@ -10,13 +8,11 @@
     box-sizing: border-box;
 }
 
-/* Aseguramos que html, body y #root ocupen el 100% de la altura */
 html, body, #root {
     height: 100%;
     margin: 0;
 }
 
-/* Estilos base para el cuerpo */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
@@ -26,13 +22,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Encabezados con Poppins */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
-/* Títulos principales */
 .title {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
@@ -41,14 +35,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
 }
 
-/* Estilo para párrafos */
 p {
     font-size: 1rem;
     color: #555;
     margin-bottom: 15px;
 }
 
-/* Estilo de enlaces */
 a {
     text-decoration: none;
     color: #4e73df;
@@ -59,7 +51,6 @@ a:hover {
     color: #2e59d9;
 }
 
-/* Estilo de botones */
 button {
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
@@ -86,7 +77,6 @@ button.primary-btn:disabled {
     cursor: not-allowed;
 }
 
-/* Estilos para inputs y selects */
 input, select {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -106,7 +96,6 @@ input:focus, select:focus {
     box-shadow: 0 0 5px rgba(78, 115, 223, 0.5);
 }
 
-/* Mensajes de error */
 .error-message {
     color: #f44336;
     background-color: #f8d7da;
@@ -118,14 +107,12 @@ input:focus, select:focus {
     font-size: 1rem;
 }
 
-/* Contenedor global para centrar contenido */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Ajustes responsivos para pantallas pequeñas */
 @media screen and (max-width: 768px) {
     .title {
         font-size: 2rem;
@@ -139,20 +126,16 @@ input:focus, select:focus {
     }
 }
 
-/* Estructura principal de la aplicación */
 .app-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Área de contenido: ocupa el espacio disponible */
 .content {
     flex: 1 0 auto;
-    /* No se fuerza overflow; solo se usará scroll si el contenido es realmente extenso */
 }
 
-/* El footer se queda al final sin forzar altura adicional */
 footer {
     flex-shrink: 0;
 }

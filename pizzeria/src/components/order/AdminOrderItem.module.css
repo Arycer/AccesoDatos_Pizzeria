@@ -7,13 +7,11 @@
     text-align: left;
 }
 
-/* Contenedor para agrupar el select y el botón en línea */
 .actionsContainer {
     display: flex;
     justify-content: center;
 }
 
-/* Reglas comunes para select y botón */
 .selectButtonCommon {
     height: 36px;
     display: flex;
@@ -27,23 +25,20 @@
     cursor: pointer;
 }
 
-/* Estilo para el desplegable */
 .statusSelect {
     composes: selectButtonCommon;
-    background-color: #4e73df;       /* Fondo azul */
-    color: white;                    /* Texto blanco */
+    background-color: #4e73df;
+    color: white;
     margin-right: 10px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /* Flecha personalizada */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath fill='white' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 10px 5px;
 }
 
-/* Estilo para el botón de "Ver Detalles" */
 .viewDetailsButton {
     composes: selectButtonCommon;
     background-color: #4e73df;

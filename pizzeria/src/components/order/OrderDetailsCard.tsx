@@ -1,4 +1,3 @@
-// src/components/OrderDetailsCard.tsx
 import React from 'react';
 import { Pedido } from '../../services/orderService';
 import styles from './OrderDetailsCard.module.css';

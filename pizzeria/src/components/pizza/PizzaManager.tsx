@@ -65,11 +65,9 @@ const PizzaManager: React.FC = () => {
     const handleDialogSave = async (pizza: Pizza) => {
         try {
             if (pizza.id) {
-                // Actualizar pizza existente
                 const updated = await updatePizza(pizza.id, pizza);
                 setPizzas(pizzas.map((p) => (p.id === pizza.id ? updated : p)));
             } else {
-                // Agregar nueva pizza
                 const added = await addPizza(pizza);
                 setPizzas([...pizzas, added]);
             }

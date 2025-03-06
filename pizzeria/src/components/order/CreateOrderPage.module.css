@@ -1,4 +1,3 @@
-/* CreateOrderPage.module.css */
 .container {
     padding: 20px;
 }
@@ -9,7 +8,6 @@
     text-align: center;
 }
 
-/* Título que está fuera del flex */
 .sectionTitle {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -28,8 +26,10 @@
 
 .cartSection {
     width: 300px;
-    /* Sin margen-top para que inicie al mismo nivel que pizzasSection */
+    position: sticky;
+    top: 20px;
 }
+
 
 .submitButton {
     margin-top: 20px;

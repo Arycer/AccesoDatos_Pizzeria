@@ -1,4 +1,3 @@
-/* src/components/Cart.module.css */
 .cartContainer {
     padding: 16px;
     border: 1px solid #ccc;
@@ -19,15 +18,23 @@
 
 .cartItem {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+    flex-direction: column;
+    gap: 4px;
     border-bottom: 1px solid #eee;
     padding-bottom: 8px;
 }
 
 .itemName {
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.itemPrice {
+    color: #666;
+    font-weight: normal;
 }
 
 .itemButtons {
@@ -50,17 +57,44 @@
     background-color: #2e59d9;
 }
 
-.clearButton {
+.total {
+    font-size: 1.2rem;
+    font-weight: bold;
     margin-top: 12px;
-    padding: 8px 16px;
+    text-align: right;
+}
+
+.actionsRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.clearButton,
+.submitButton {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
     border: none;
     border-radius: 8px;
-    background-color: #f44336;
-    color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+.clearButton {
+    background-color: #f44336;
+    color: #fff;
+}
+
 .clearButton:hover {
     background-color: #d32f2f;
+}
+
+.submitButton {
+    background-color: #4e73df;
+    color: #fff;
+}
+
+.submitButton:hover {
+    background-color: #2e59d9;
 }

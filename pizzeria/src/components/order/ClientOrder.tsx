@@ -1,4 +1,3 @@
-// src/components/ClientOrder.tsx
 import React from 'react';
 import { Pedido } from '../../services/orderService';
 import styles from './ClientOrder.module.css';

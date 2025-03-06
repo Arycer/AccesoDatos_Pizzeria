@@ -1,17 +1,13 @@
-/* RegisterForm.module.css */
-
-/* Fondo de la página con un gradiente suave */
 .registerWrapper {
     display: flex;
-    flex-direction: column; /* Aseguramos que el contenido se apile verticalmente */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
-    text-align: center; /* Asegura que el texto esté centrado */
+    text-align: center;
 }
 
-/* Título principal centrado */
 .title {
     font-size: 2.5rem;
     font-family: 'Roboto', sans-serif;
@@ -20,7 +16,6 @@
     font-weight: bold;
 }
 
-/* Contenedor principal del formulario */
 .registerContainer {
     background: white;
     border-radius: 15px;
@@ -31,13 +26,11 @@
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Efecto de hover para el contenedor */
 .registerContainer:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Título del formulario centrado */
 .registerTitle {
     font-size: 1.8rem;
     color: #333;
@@ -46,20 +39,17 @@
     margin-bottom: 20px;
 }
 
-/* Contenedor del formulario */
 .registerForm {
     display: flex;
     flex-direction: column;
 }
 
-/* Estilo para los campos de entrada */
 .inputGroup {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
 
-/* Estilo para las etiquetas de los campos */
 .inputGroup label {
     font-size: 1.1rem;
     color: #555;
@@ -67,7 +57,6 @@
     font-weight: 500;
 }
 
-/* Estilo para los inputs y selects */
 .inputGroup input,
 .inputGroup select {
     padding: 12px;
@@ -80,7 +69,6 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Efecto de focus en los inputs */
 .inputGroup input:focus,
 .inputGroup select:focus {
     border-color: #4e73df;
@@ -88,7 +76,6 @@
     box-shadow: 0 0 8px rgba(78, 115, 223, 0.5);
 }
 
-/* Estilo para el botón de enviar */
 .btn {
     background-color: #4e73df;
     color: white;
@@ -100,26 +87,22 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Efecto de hover para el botón */
 .btn:hover {
     background-color: #2e59d9;
     transform: translateY(-3px);
 }
 
-/* Estilo para el botón deshabilitado */
 .btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-/* Pie de página con enlace */
 .registerFooter {
     text-align: center;
     margin-top: 20px;
     font-size: 1rem;
 }
 
-/* Estilo para el enlace de inicio de sesión */
 .registerLink {
     color: #4e73df;
     text-decoration: none;
@@ -130,7 +113,6 @@
     text-decoration: underline;
 }
 
-/* Estilo para los mensajes de error */
 .errorMessage {
     color: #f44336;
     background-color: #f8d7da;
@@ -142,7 +124,6 @@
     text-align: center;
 }
 
-/* Animación de entrada para el formulario */
 @keyframes fadeIn {
     0% {
         opacity: 0;

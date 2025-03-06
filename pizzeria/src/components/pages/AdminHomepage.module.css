@@ -1,7 +1,6 @@
-/* src/pages/AdminHomepage.module.css */
 .container {
     padding: 20px;
-    min-height: calc(100vh - 150px); /* Ajusta según Header y Footer */
+    min-height: calc(100vh - 150px);
 }
 
 .title {

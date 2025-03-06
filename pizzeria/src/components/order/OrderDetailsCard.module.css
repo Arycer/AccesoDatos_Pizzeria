@@ -1,4 +1,3 @@
-/* src/components/OrderDetailsCard.module.css */
 .cardOverlay {
     position: fixed;
     top: 0;
@@ -22,7 +21,6 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Aseguramos que la lista tenga un padding-left acorde al padding de la tarjeta */
 .card ul {
     list-style: disc;
     margin: 0;
