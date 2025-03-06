@@ -1,12 +1,14 @@
 // src/pages/AdminOrdersPage.tsx
 import React, { useEffect, useState } from 'react';
 import { Pedido, getAllOrders, updateOrderStatus } from '../../services/orderService';
-import OrderItem from './OrderItem';
+import AdminOrderItem from './AdminOrderItem.tsx';
+import OrderDetailsCard from './OrderDetailsCard';
 import styles from './AdminOrdersPage.module.css';
 
 const AdminOrdersPage: React.FC = () => {
     const [orders, setOrders] = useState<Pedido[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [selectedOrder, setSelectedOrder] = useState<Pedido | null>(null);
 
     const fetchOrders = async () => {
         try {
@@ -36,6 +38,14 @@ const AdminOrdersPage: React.FC = () => {
         }
     };
 
+    const handleViewDetails = (order: Pedido) => {
+        setSelectedOrder(order);
+    };
+
+    const handleCloseDetails = () => {
+        setSelectedOrder(null);
+    };
+
     // Posibles estados del pedido
     const statuses = ["pendiente", "confirmado", "en preparación", "enviado", "cancelado"];
 
@@ -45,28 +55,34 @@ const AdminOrdersPage: React.FC = () => {
             {loading ? (
                 <p>Cargando pedidos...</p>
             ) : (
-                <table className={styles.ordersTable}>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Cliente</th>
-                        <th>Fecha</th>
-                        <th>Total</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {orders.map(order => (
-                        <OrderItem
-                            key={order.id}
-                            order={order}
-                            statuses={statuses}
-                            onStatusChange={handleStatusChange}
-                        />
-                    ))}
-                    </tbody>
-                </table>
+                <>
+                    <table className={styles.ordersTable}>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {orders.map(order => (
+                            <AdminOrderItem
+                                key={order.id}
+                                order={order}
+                                statuses={statuses}
+                                onStatusChange={handleStatusChange}
+                                onViewDetails={handleViewDetails}
+                            />
+                        ))}
+                        </tbody>
+                    </table>
+                    {selectedOrder && (
+                        <OrderDetailsCard order={selectedOrder} onClose={handleCloseDetails} />
+                    )}
+                </>
             )}
         </div>
     );

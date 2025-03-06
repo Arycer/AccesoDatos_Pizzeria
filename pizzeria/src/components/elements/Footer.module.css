@@ -1,0 +1,8 @@
+/* src/components/Footer.module.css */
+.footer {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    padding: 20px;
+    background-color: #4e73df;
+    height: 70px;
+}

@@ -1,0 +1,14 @@
+/* src/components/ClientOrder.module.css */
+.orderRow {
+    border-bottom: 1px solid #ccc;
+}
+
+.cell {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.pizzaItem {
+    margin-bottom: 4px;
+}

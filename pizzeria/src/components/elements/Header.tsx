@@ -30,14 +30,53 @@ const Header: React.FC = () => {
     return (
         <header className={styles.header}>
             <div className={styles.left}>
-                <h1>Pizzeria</h1>
+                <h1
+                    className={styles.clickableTitle}
+                    onClick={() => navigate('/home')}
+                >
+                    Pizzeria
+                </h1>
             </div>
             <div className={styles.right}>
                 {token ? (
                     <>
-            <span className={styles.userInfo}>
-              {username} ({role})
-            </span>
+                        <span className={styles.userInfo}>
+                            {username} ({role})
+                        </span>
+                        <div className={styles.navButtons}>
+                            {role === "ADMIN" && (
+                                <>
+                                    <button
+                                        onClick={() => navigate('/admin/orders')}
+                                        className={styles.navButton}
+                                    >
+                                        Gestionar Pedidos
+                                    </button>
+                                    <button
+                                        onClick={() => navigate('/admin/pizzas')}
+                                        className={styles.navButton}
+                                    >
+                                        Gestionar Pizzas
+                                    </button>
+                                </>
+                            )}
+                            {role === "CLIENTE" && (
+                                <>
+                                    <button
+                                        onClick={() => navigate('/create-order')}
+                                        className={styles.navButton}
+                                    >
+                                        Crear Pedido
+                                    </button>
+                                    <button
+                                        onClick={() => navigate('/my-orders')}
+                                        className={styles.navButton}
+                                    >
+                                        Mis Pedidos
+                                    </button>
+                                </>
+                            )}
+                        </div>
                         <button onClick={handleLogout} className={styles.logoutButton}>
                             Logout
                         </button>
