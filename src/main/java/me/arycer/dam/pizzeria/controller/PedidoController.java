@@ -34,7 +34,10 @@ public class PedidoController {
      */
     @PostMapping
     @PreAuthorize("hasAuthority('ROLE_CLIENTE')")
-    public ResponseEntity<Pedido> crearPedido(@RequestBody Pedido pedido) {
+    public ResponseEntity<Pedido> crearPedido(@RequestBody Pedido pedido, @AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+        pedido.setClienteUsername(username);
+
         Pedido nuevoPedido = pedidoService.guardarPedido(pedido);
         return ResponseEntity.ok(nuevoPedido);
     }

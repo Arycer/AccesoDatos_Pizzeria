@@ -1,0 +1,31 @@
+/* src/pages/AdminOrdersPage.module.css */
+.container {
+    padding: 20px;
+}
+
+.header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ordersTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ordersTable th,
+.ordersTable td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.ordersTable th {
+    background-color: #f2f2f2;
+}
+
+.ordersTable select {
+    padding: 5px;
+    border-radius: 4px;
+}

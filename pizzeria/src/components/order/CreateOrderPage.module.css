@@ -1,0 +1,48 @@
+/* CreateOrderPage.module.css */
+.container {
+    padding: 20px;
+}
+
+.header {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Título que está fuera del flex */
+.sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contentWrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.pizzasSection {
+    flex: 1;
+}
+
+.cartSection {
+    width: 300px;
+    /* Sin margen-top para que inicie al mismo nivel que pizzasSection */
+}
+
+.submitButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4e73df;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #2e59d9;
+}

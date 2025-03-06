@@ -98,6 +98,7 @@ const PizzaManager: React.FC = () => {
                     <PizzaItem
                         key={pizza.id}
                         pizza={pizza}
+                        editable={true}
                         onEdit={handleEdit}
                         onDelete={handleDelete}
                         onToggleAvailability={handleToggleAvailability}

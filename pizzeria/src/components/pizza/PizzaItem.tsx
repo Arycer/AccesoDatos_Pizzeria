@@ -1,3 +1,4 @@
+// PizzaItem.tsx
 import React from 'react';
 import { Pizza } from '../../services/pizzaService';
 import ToggleSwitch from '../elements/ToggleSwitch';
@@ -5,12 +6,21 @@ import styles from './PizzaItem.module.css';
 
 interface PizzaItemProps {
     pizza: Pizza;
+    editable: boolean;
     onEdit: (pizza: Pizza) => void;
     onDelete: (id: string) => void;
     onToggleAvailability: (pizza: Pizza, newAvailability: boolean) => void;
+    onAddToCart?: (pizza: Pizza) => void; // propiedad opcional para añadir al carrito
 }
 
-const PizzaItem: React.FC<PizzaItemProps> = ({ pizza, onEdit, onDelete, onToggleAvailability }) => {
+const PizzaItem: React.FC<PizzaItemProps> = ({
+                                                 pizza,
+                                                 editable,
+                                                 onEdit,
+                                                 onDelete,
+                                                 onToggleAvailability,
+                                                 onAddToCart,
+                                             }) => {
     return (
         <div className={styles.card}>
             <div className={styles.content}>
@@ -27,25 +37,38 @@ const PizzaItem: React.FC<PizzaItemProps> = ({ pizza, onEdit, onDelete, onToggle
                     </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <button
-                        className={`${styles.buttonCommon} ${styles.editButton}`}
-                        onClick={() => onEdit(pizza)}
-                    >
-                        Editar
-                    </button>
-                    <button
-                        className={`${styles.buttonCommon} ${styles.deleteButton}`}
-                        onClick={() => onDelete(pizza.id!)}
-                    >
-                        Borrar
-                    </button>
-                    <div className={styles.availabilityContainer}>
-                        <span>Disponible:</span>
-                        <ToggleSwitch
-                            checked={pizza.disponible}
-                            onToggle={(newValue) => onToggleAvailability(pizza, newValue)}
-                        />
-                    </div>
+                    {editable ? (
+                        <>
+                            <button
+                                className={`${styles.buttonCommon} ${styles.editButton}`}
+                                onClick={() => onEdit(pizza)}
+                            >
+                                Editar
+                            </button>
+                            <button
+                                className={`${styles.buttonCommon} ${styles.deleteButton}`}
+                                onClick={() => onDelete(pizza.id!)}
+                            >
+                                Borrar
+                            </button>
+                            <div className={styles.availabilityContainer}>
+                                <span>Disponible:</span>
+                                <ToggleSwitch
+                                    checked={pizza.disponible}
+                                    onToggle={(newValue) =>
+                                        onToggleAvailability(pizza, newValue)
+                                    }
+                                />
+                            </div>
+                        </>
+                    ) : (
+                        <button
+                            className={`${styles.buttonCommon} ${styles.addToCartButton}`}
+                            onClick={() => onAddToCart && onAddToCart(pizza)}
+                        >
+                            Añadir al carrito
+                        </button>
+                    )}
                 </div>
             </div>
             <div className={styles.imageContainer}>

@@ -137,3 +137,11 @@
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+
+.addToCartButton {
+    background-color: #28a745;
+    color: #fff;
+}
+.addToCartButton:hover {
+    background-color: #218838;
+}

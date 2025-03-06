@@ -5,8 +5,8 @@ import RegisterForm from "./components/auth/RegisterForm.tsx";
 import ProtectedRoute from "./components/route/ProtectedRoute.tsx";
 import AccessDenied from "./components/route/AccessDenied.tsx";
 import Logout from "./components/auth/Logout.tsx";
-import PizzaManager from "./components/pizza/PizzaManager.tsx";
 import Header from "./components/elements/Header.tsx";
+import AdminOrdersPage from "./components/order/AdminOrdersPage.tsx";
 
 function App() {
     const isAuthenticated = Boolean(localStorage.getItem("token"));
@@ -25,7 +25,7 @@ function App() {
                     path="/dashboard"
                     element={
                         <ProtectedRoute
-                            element={<PizzaManager />}
+                            element={<AdminOrdersPage />}
                             allowedRoles={["ADMIN","CLIENTE"]}
                         />
                     }
