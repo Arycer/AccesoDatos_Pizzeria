@@ -21,7 +21,7 @@ public class PizzaService {
     }
 
     public List<Pizza> getAvailable() {
-        return pizzaRepository.getAvailable();
+        return pizzaRepository.findByDisponibleTrue();
     }
 
     public Optional<Pizza> getById(String id) {

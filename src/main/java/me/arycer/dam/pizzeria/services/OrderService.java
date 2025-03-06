@@ -27,7 +27,7 @@ public class OrderService {
     }
 
     public List<Order> getClientOrders(String clienteUsername) {
-        return orderRepository.getUserOrders(clienteUsername);
+        return orderRepository.findByClienteUsername(clienteUsername);
     }
 
     public Order actualizarPedido(String id, Order order) {

@@ -21,7 +21,7 @@ export interface Pedido {
 export const createOrder = async (pedido: Pedido): Promise<Pedido> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pedidos", {
+        const response = await fetch("http://localhost:8080/api/orders/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export const createOrder = async (pedido: Pedido): Promise<Pedido> => {
 export const getAllOrders = async (): Promise<Pedido[]> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pedidos", {
+        const response = await fetch("http://localhost:8080/api/orders/all", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export const getAllOrders = async (): Promise<Pedido[]> => {
 export const getMyOrders = async (): Promise<Pedido[]> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pedidos/misPedidos", {
+        const response = await fetch("http://localhost:8080/api/orders/me", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -100,7 +100,7 @@ export const getMyOrders = async (): Promise<Pedido[]> => {
 export const getOrderById = async (id: string): Promise<Pedido> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`http://localhost:8080/api/pedidos/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/orders/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -127,7 +127,7 @@ export const getOrderById = async (id: string): Promise<Pedido> => {
 export const updateOrderStatus = async (id: string, estado: string): Promise<Pedido> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`http://localhost:8080/api/pedidos/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/orders/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -154,7 +154,7 @@ export const updateOrderStatus = async (id: string, estado: string): Promise<Ped
 export const deleteOrder = async (id: string): Promise<void> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`http://localhost:8080/api/pedidos/${id}`, {
+        const response = await fetch(`http://localhost:8080/api/orders/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

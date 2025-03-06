@@ -48,7 +48,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                                 // Público
-                                .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/addNewUser").permitAll()
+                                .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/register").permitAll()
 
                                 // Administrador
                                 .requestMatchers(HttpMethod.GET, "/api/pizzas/**").permitAll()
@@ -57,15 +57,15 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.DELETE, "/api/pizzas/**").hasRole("ADMIN")
 
                                 /* Pedidos */
-                                .requestMatchers(HttpMethod.POST, "/api/pedidos").hasRole("CLIENTE")
-                                .requestMatchers(HttpMethod.POST, "/api/pedidos/crearPedido").hasRole("CLIENTE")
-                                .requestMatchers(HttpMethod.GET, "/auth/pizzas", "/api/pedidos/misPedidos").hasRole("CLIENTE")
-                                .requestMatchers(HttpMethod.GET, "/api/pedidos").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/orders/all").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/orders/create").hasRole("CLIENTE")
+                                .requestMatchers(HttpMethod.GET, "/api/orders/me").hasRole("CLIENTE")
                                 .requestMatchers(HttpMethod.PUT, "/api/pedidos/{id}").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
+
                 // Control de acceso denegado
-                .exceptionHandling(exception -> exception.accessDeniedPage("/error/acceso-denegado"))
+                .exceptionHandling(exception -> exception.accessDeniedPage("/access-denied"))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);

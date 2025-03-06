@@ -17,7 +17,7 @@ public class PizzaController {
         this.pizzaService = pizzaService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Pizza> getAll() {
         return pizzaService.getAll();
     }
@@ -35,7 +35,7 @@ public class PizzaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/add")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Pizza> add(@RequestBody Pizza pizza) {
         return ResponseEntity.ok(pizzaService.add(pizza));

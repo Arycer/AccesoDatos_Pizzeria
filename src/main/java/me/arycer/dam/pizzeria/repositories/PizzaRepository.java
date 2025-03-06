@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PizzaRepository extends MongoRepository<Pizza, String> {
-    List<Pizza> getAvailable();
+    List<Pizza> findByDisponibleTrue();
 }

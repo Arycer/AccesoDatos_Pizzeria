@@ -43,7 +43,7 @@ export const registerUser = async (username: string, email: string, password: st
     const userData = { username, email, password, roles: role };
 
     try {
-        const response = await fetch("http://localhost:8080/auth/addNewUser", {
+        const response = await fetch("http://localhost:8080/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userData),

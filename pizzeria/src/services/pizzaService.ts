@@ -13,7 +13,7 @@ export interface Pizza {
  */
 export const getAllPizzas = async (): Promise<Pizza[]> => {
     try {
-        const response = await fetch("http://localhost:8080/api/pizzas", {
+        const response = await fetch("http://localhost:8080/api/pizzas/all", {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         });
@@ -33,7 +33,7 @@ export const getAllPizzas = async (): Promise<Pizza[]> => {
 export const getAvailablePizzas = async (): Promise<Pizza[]> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pizzas/disponibles", {
+        const response = await fetch("http://localhost:8080/api/pizzas/available", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export const getPizzaById = async (id: string): Promise<Pizza> => {
 export const addPizza = async (pizza: Pizza): Promise<Pizza> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pizzas", {
+        const response = await fetch("http://localhost:8080/api/pizzas/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
