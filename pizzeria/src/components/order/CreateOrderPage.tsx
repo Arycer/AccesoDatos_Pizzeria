@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PizzaItem from '../../components/pizza/PizzaItem';
-import Cart, { CartItem } from './Cart';
-import { Pizza, getAvailablePizzas } from '../../services/pizzaService';
-import { createOrder } from '../../services/orderService';
+import Cart, {CartItem} from './Cart';
+import {getAvailablePizzas, Pizza} from '../../services/pizzaService';
+import {createOrder} from '../../services/orderService';
 import styles from './CreateOrderPage.module.css';
 
 const CreateOrderPage: React.FC = () => {
@@ -29,10 +29,10 @@ const CreateOrderPage: React.FC = () => {
             const existingItem = prevCart.find((item) => item.pizza.id === pizza.id);
             if (existingItem) {
                 return prevCart.map((item) =>
-                    item.pizza.id === pizza.id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.pizza.id === pizza.id ? {...item, quantity: item.quantity + 1} : item
                 );
             }
-            return [...prevCart, { pizza, quantity: 1 }];
+            return [...prevCart, {pizza, quantity: 1}];
         });
     };
 
@@ -41,7 +41,7 @@ const CreateOrderPage: React.FC = () => {
             prevCart.reduce<CartItem[]>((acc, item) => {
                 if (item.pizza.id === pizza.id) {
                     if (item.quantity > 1) {
-                        acc.push({ pizza: item.pizza, quantity: item.quantity - 1 });
+                        acc.push({pizza: item.pizza, quantity: item.quantity - 1});
                     }
                 } else {
                     acc.push(item);
@@ -62,7 +62,7 @@ const CreateOrderPage: React.FC = () => {
         }
 
         const pizzasPedidos = cart.flatMap(item =>
-            Array.from({ length: item.quantity }, () => ({
+            Array.from({length: item.quantity}, () => ({
                 nombre: item.pizza.nombre,
                 precio: item.pizza.precio,
             }))
@@ -104,9 +104,12 @@ const CreateOrderPage: React.FC = () => {
                                 key={pizza.id}
                                 pizza={pizza}
                                 editable={false}
-                                onEdit={() => {}}
-                                onDelete={() => {}}
-                                onToggleAvailability={() => {}}
+                                onEdit={() => {
+                                }}
+                                onDelete={() => {
+                                }}
+                                onToggleAvailability={() => {
+                                }}
                                 onAddToCart={() => handleAddToCart(pizza)}
                             />
                         ))

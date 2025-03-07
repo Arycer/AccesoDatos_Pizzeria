@@ -14,8 +14,8 @@ export const loginUser = async (username: string, password: string): Promise<Log
     try {
         const response = await fetch("http://localhost:8080/auth/generateToken", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password}),
             credentials: "include",
         });
 
@@ -40,12 +40,12 @@ export const checkUsernameAvailability = async (username: string): Promise<void>
 };
 
 export const registerUser = async (username: string, email: string, password: string, role: string): Promise<void> => {
-    const userData = { username, email, password, roles: role };
+    const userData = {username, email, password, roles: role};
 
     try {
         const response = await fetch("http://localhost:8080/auth/register", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userData),
         });
 

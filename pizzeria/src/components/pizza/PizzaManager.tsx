@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Pizza } from '../../services/pizzaService';
+import React, {useEffect, useState} from 'react';
+import {addPizza, deletePizza, getAllPizzas, Pizza, updatePizza} from '../../services/pizzaService';
 import PizzaItem from './PizzaItem';
 import PizzaDialog from './PizzaDialog';
-import { getAllPizzas, addPizza, updatePizza, deletePizza } from '../../services/pizzaService';
 import styles from './PizzaManager.module.css';
 
 const PizzaManager: React.FC = () => {
@@ -51,7 +50,7 @@ const PizzaManager: React.FC = () => {
 
     const handleToggleAvailability = async (pizza: Pizza, newAvailability: boolean) => {
         try {
-            const updatedPizza = await updatePizza(pizza.id!, { ...pizza, disponible: newAvailability });
+            const updatedPizza = await updatePizza(pizza.id!, {...pizza, disponible: newAvailability});
             setPizzas(pizzas.map((p) => (p.id === pizza.id ? updatedPizza : p)));
         } catch (err: any) {
             alert(err.message || 'Error al actualizar la disponibilidad.');

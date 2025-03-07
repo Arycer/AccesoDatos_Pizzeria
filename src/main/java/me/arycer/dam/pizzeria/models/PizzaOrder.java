@@ -9,7 +9,8 @@ public class PizzaOrder {
     private String nombre;
     private double precio;
 
-    public PizzaOrder() {}
+    public PizzaOrder() {
+    }
 
     public PizzaOrder(String nombre, double precio) {
         this.nombre = nombre;

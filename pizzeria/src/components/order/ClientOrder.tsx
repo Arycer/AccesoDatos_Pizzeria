@@ -1,12 +1,12 @@
 import React from 'react';
-import { Pedido } from '../../services/orderService';
+import {Pedido} from '../../services/orderService';
 import styles from './ClientOrder.module.css';
 
 interface ClientOrderProps {
     order: Pedido;
 }
 
-const ClientOrder: React.FC<ClientOrderProps> = ({ order }) => {
+const ClientOrder: React.FC<ClientOrderProps> = ({order}) => {
     return (
         <tr className={styles.orderRow}>
             <td className={styles.cell}>{order.id}</td>

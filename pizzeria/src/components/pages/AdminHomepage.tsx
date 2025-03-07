@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Pedido, getAllOrders } from '../../services/orderService';
+import React, {useEffect, useState} from 'react';
+import {getAllOrders, Pedido} from '../../services/orderService';
 import styles from './AdminHomepage.module.css';
 
 const AdminHomepage: React.FC = () => {

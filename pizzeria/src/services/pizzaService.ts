@@ -15,7 +15,7 @@ export const getAllPizzas = async (): Promise<Pizza[]> => {
     try {
         const response = await fetch("http://localhost:8080/api/pizzas/all", {
             method: "GET",
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
         });
         if (!response.ok) {
             throw new Error("Error al obtener las pizzas.");
@@ -58,7 +58,7 @@ export const getPizzaById = async (id: string): Promise<Pizza> => {
     try {
         const response = await fetch(`http://localhost:8080/api/pizzas/${id}`, {
             method: "GET",
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
         });
         if (!response.ok) {
             throw new Error("Pizza no encontrada.");

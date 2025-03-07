@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Pedido, getAllOrders, updateOrderStatus } from '../../services/orderService';
+import React, {useEffect, useState} from 'react';
+import {getAllOrders, Pedido, updateOrderStatus} from '../../services/orderService';
 import AdminOrderItem from './AdminOrderItem.tsx';
 import OrderDetailsCard from './OrderDetailsCard';
 import styles from './AdminOrdersPage.module.css';
@@ -79,7 +79,7 @@ const AdminOrdersPage: React.FC = () => {
                         </tbody>
                     </table>
                     {selectedOrder && (
-                        <OrderDetailsCard order={selectedOrder} onClose={handleCloseDetails} />
+                        <OrderDetailsCard order={selectedOrder} onClose={handleCloseDetails}/>
                     )}
                 </>
             )}

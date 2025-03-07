@@ -117,10 +117,12 @@ input:focus, select:focus {
     .title {
         font-size: 2rem;
     }
+
     .registerContainer {
         width: 90%;
         padding: 25px;
     }
+
     .registerTitle {
         font-size: 1.5rem;
     }

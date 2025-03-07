@@ -6,7 +6,7 @@ interface ToggleSwitchProps {
     onToggle: (newValue: boolean) => void;
 }
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ checked, onToggle }) => {
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({checked, onToggle}) => {
     return (
         <div
             className={`${styles.toggleSwitch} ${checked ? styles.active : ''}`}

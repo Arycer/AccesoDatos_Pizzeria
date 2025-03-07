@@ -1,6 +1,6 @@
 // src/pages/MisPedidosPage.tsx
-import React, { useEffect, useState } from 'react';
-import { Pedido, getMyOrders } from '../../services/orderService';
+import React, {useEffect, useState} from 'react';
+import {getMyOrders, Pedido} from '../../services/orderService';
 import ClientOrder from './ClientOrder';
 import styles from './ClientOrdersPage.module.css';
 
@@ -43,7 +43,7 @@ const ClientOrdersPage: React.FC = () => {
                     </thead>
                     <tbody>
                     {orders.map(order => (
-                        <ClientOrder key={order.id} order={order} />
+                        <ClientOrder key={order.id} order={order}/>
                     ))}
                     </tbody>
                 </table>

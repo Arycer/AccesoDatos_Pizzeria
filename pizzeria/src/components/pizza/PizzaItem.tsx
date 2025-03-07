@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pizza } from '../../services/pizzaService';
+import {Pizza} from '../../services/pizzaService';
 import ToggleSwitch from '../elements/ToggleSwitch';
 import styles from './PizzaItem.module.css';
 
@@ -72,7 +72,7 @@ const PizzaItem: React.FC<PizzaItemProps> = ({
             </div>
             <div className={styles.imageContainer}>
                 {pizza.imagenUrl && (
-                    <img src={pizza.imagenUrl} alt={pizza.nombre} className={styles.pizzaImage} />
+                    <img src={pizza.imagenUrl} alt={pizza.nombre} className={styles.pizzaImage}/>
                 )}
             </div>
         </div>

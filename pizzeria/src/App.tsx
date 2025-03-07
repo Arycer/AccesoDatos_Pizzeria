@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm.tsx";
 import RegisterForm from "./components/auth/RegisterForm.tsx";
 import ProtectedRoute from "./components/route/ProtectedRoute.tsx";
@@ -21,20 +21,21 @@ function App() {
     return (
         <BrowserRouter>
             <div className="app-container">
-                <Header />
+                <Header/>
                 <div className="content">
                     <Routes>
-                        <Route path="/" element={isAuthenticated ? <Navigate to="/home" /> : <Navigate to="/auth/login" />} />
-                        <Route path="/auth/login" element={<LoginForm />} />
-                        <Route path="/auth/register" element={<RegisterForm />} />
-                        <Route path="/auth/logout" element={<Logout />} />
-                        <Route path="/access-denied" element={<AccessDenied />} />
+                        <Route path="/"
+                               element={isAuthenticated ? <Navigate to="/home"/> : <Navigate to="/auth/login"/>}/>
+                        <Route path="/auth/login" element={<LoginForm/>}/>
+                        <Route path="/auth/register" element={<RegisterForm/>}/>
+                        <Route path="/auth/logout" element={<Logout/>}/>
+                        <Route path="/access-denied" element={<AccessDenied/>}/>
 
                         <Route
                             path="/admin/orders"
                             element={
                                 <ProtectedRoute
-                                    element={<AdminOrdersPage />}
+                                    element={<AdminOrdersPage/>}
                                     allowedRoles={["ADMIN"]}
                                 />
                             }
@@ -44,7 +45,7 @@ function App() {
                             path="/admin/pizzas"
                             element={
                                 <ProtectedRoute
-                                    element={<PizzaManager />}
+                                    element={<PizzaManager/>}
                                     allowedRoles={["ADMIN"]}
                                 />
                             }
@@ -54,7 +55,7 @@ function App() {
                             path="/create-order"
                             element={
                                 <ProtectedRoute
-                                    element={<CreateOrderPage />}
+                                    element={<CreateOrderPage/>}
                                     allowedRoles={["ADMIN", "CLIENTE"]}
                                 />
                             }
@@ -64,7 +65,7 @@ function App() {
                             path="/my-orders"
                             element={
                                 <ProtectedRoute
-                                    element={<ClientOrdersPage />}
+                                    element={<ClientOrdersPage/>}
                                     allowedRoles={["ADMIN", "CLIENTE"]}
                                 />
                             }
@@ -72,18 +73,18 @@ function App() {
 
                         <Route
                             path="/home"
-                            element={
+                            element={!isAuthenticated ? <Navigate to="/auth/login"/> :
                                 <RoleBasedRoute
                                     roleComponents={{
-                                        ADMIN: <AdminHomepage />,
-                                        CLIENTE: <ClientHomepage />,
+                                        ADMIN: <AdminHomepage/>,
+                                        CLIENTE: <ClientHomepage/>,
                                     }}
                                 />
                             }
                         />
                     </Routes>
                 </div>
-                <Footer />
+                <Footer/>
             </div>
         </BrowserRouter>
     );

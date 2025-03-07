@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { loginUser, setAuthToken } from '../../services/authService';
+import React, {useState} from 'react';
+import {loginUser, setAuthToken} from '../../services/authService';
 import styles from './LoginForm.module.css';
 
 const LoginForm: React.FC = () => {
@@ -35,7 +35,7 @@ const LoginForm: React.FC = () => {
 
     return (
         <div className={styles['login-wrapper']}>
-            <h1 className={styles.title}>PIZZERÍA POM</h1>
+            <h1 className={styles.title}>PIZZERÍA DELICIOSA</h1>
             <div className={styles['login-container']}>
                 <h2 className={styles['login-title']}>Iniciar sesión</h2>
                 <form onSubmit={handleSubmit} className={styles['login-form']}>

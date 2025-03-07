@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { checkUsernameAvailability, registerUser } from '../../services/authService';
+import React, {useState} from 'react';
+import {checkUsernameAvailability, registerUser} from '../../services/authService';
 import styles from './RegisterForm.module.css';
 
 const RegisterForm: React.FC = () => {
@@ -42,7 +42,7 @@ const RegisterForm: React.FC = () => {
 
     return (
         <div className={styles.registerWrapper}>
-            <h1 className={styles.title}>PIZZERÍA POM</h1>
+            <h1 className={styles.title}>PIZZERÍA DELICIOSA</h1>
             <div className={styles.registerContainer}>
                 <h2 className={styles.registerTitle}>Registrarse</h2>
 

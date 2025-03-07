@@ -71,6 +71,7 @@
     background-color: #4e73df;
     color: #fff;
 }
+
 .editButton:hover {
     background-color: #2e59d9;
 }
@@ -79,6 +80,7 @@
     background-color: #f44336;
     color: #fff;
 }
+
 .deleteButton:hover {
     background-color: #d32f2f;
 }
@@ -92,9 +94,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .toggleSwitch.active {
     background-color: #4caf50;
 }
+
 .toggleSwitch::after {
     content: "";
     position: absolute;
@@ -106,6 +110,7 @@
     border-radius: 50%;
     transition: transform 0.3s ease;
 }
+
 .toggleSwitch.active::after {
     transform: translateX(34px);
 }
@@ -137,6 +142,7 @@
     background-color: #28a745;
     color: #fff;
 }
+
 .addToCartButton:hover {
     background-color: #218838;
 }

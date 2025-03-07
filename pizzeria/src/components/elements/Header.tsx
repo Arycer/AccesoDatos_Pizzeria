@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Header.module.css';
-import { logout, getUserData } from '../../services/authService';
-import { useNavigate } from 'react-router-dom';
+import {getUserData, logout} from '../../services/authService';
+import {useNavigate} from 'react-router-dom';
 
 const Header: React.FC = () => {
     const [username, setUsername] = useState<string>('');

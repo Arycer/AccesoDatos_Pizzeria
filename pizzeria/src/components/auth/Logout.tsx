@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import {logout} from "../../services/authService.ts";
 
 const Logout: React.FC = () => {

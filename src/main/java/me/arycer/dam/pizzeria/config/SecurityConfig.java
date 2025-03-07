@@ -47,21 +47,21 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                                // Público
-                                .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/register").permitAll()
+                        // Público
+                        .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/register").permitAll()
 
-                                // Administrador
-                                .requestMatchers(HttpMethod.GET, "/api/pizzas/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/pizzas/**").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.PUT, "/api/pizzas/**").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.DELETE, "/api/pizzas/**").hasRole("ADMIN")
+                        // Administrador
+                        .requestMatchers(HttpMethod.GET, "/api/pizzas/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/pizzas/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/pizzas/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/pizzas/**").hasRole("ADMIN")
 
-                                /* Pedidos */
-                                .requestMatchers(HttpMethod.POST, "/api/orders/all").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.POST, "/api/orders/create").hasRole("CLIENTE")
-                                .requestMatchers(HttpMethod.GET, "/api/orders/me").hasRole("CLIENTE")
-                                .requestMatchers(HttpMethod.PUT, "/api/pedidos/{id}").hasRole("ADMIN")
-                                .anyRequest().authenticated()
+                        /* Pedidos */
+                        .requestMatchers(HttpMethod.POST, "/api/orders/all").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/orders/create").hasRole("CLIENTE")
+                        .requestMatchers(HttpMethod.GET, "/api/orders/me").hasRole("CLIENTE")
+                        .requestMatchers(HttpMethod.PUT, "/api/pedidos/{id}").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
 
                 // Control de acceso denegado

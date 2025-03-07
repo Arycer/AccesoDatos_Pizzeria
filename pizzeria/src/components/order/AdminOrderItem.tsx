@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pedido } from '../../services/orderService';
+import {Pedido} from '../../services/orderService';
 import styles from './AdminOrderItem.module.css';
 
 interface OrderItemProps {
@@ -9,7 +9,7 @@ interface OrderItemProps {
     onViewDetails: (order: Pedido) => void;
 }
 
-const AdminOrderItem: React.FC<OrderItemProps> = ({ order, statuses, onStatusChange, onViewDetails }) => {
+const AdminOrderItem: React.FC<OrderItemProps> = ({order, statuses, onStatusChange, onViewDetails}) => {
     return (
         <tr className={styles.orderRow}>
             <td className={styles.cell}>{order.id}</td>

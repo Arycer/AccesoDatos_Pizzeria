@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Pizza } from '../../services/pizzaService';
+import React, {useEffect, useState} from 'react';
+import {Pizza} from '../../services/pizzaService';
 import styles from './PizzaDialog.module.css';
 
 interface PizzaDialogProps {

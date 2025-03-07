@@ -133,7 +133,7 @@ export const updateOrderStatus = async (id: string, estado: string): Promise<Ped
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`,
             },
-            body: JSON.stringify({ estado }),
+            body: JSON.stringify({estado}),
         });
         if (!response.ok) {
             const errorText = await response.text();

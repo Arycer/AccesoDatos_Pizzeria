@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pedido } from '../../services/orderService';
+import {Pedido} from '../../services/orderService';
 import styles from './OrderDetailsCard.module.css';
 
 interface OrderDetailsCardProps {
@@ -7,7 +7,7 @@ interface OrderDetailsCardProps {
     onClose: () => void;
 }
 
-const OrderDetailsCard: React.FC<OrderDetailsCardProps> = ({ order, onClose }) => {
+const OrderDetailsCard: React.FC<OrderDetailsCardProps> = ({order, onClose}) => {
     return (
         <div className={styles.cardOverlay}>
             <div className={styles.card}>

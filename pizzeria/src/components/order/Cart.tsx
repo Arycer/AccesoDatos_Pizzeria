@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pizza } from '../../services/pizzaService';
+import {Pizza} from '../../services/pizzaService';
 import styles from './Cart.module.css';
 
 export interface CartItem {
@@ -15,7 +15,7 @@ interface CartProps {
     onSubmitOrder: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({ cart, onAddToCart, onRemoveFromCart, onClearCart, onSubmitOrder }) => {
+const Cart: React.FC<CartProps> = ({cart, onAddToCart, onRemoveFromCart, onClearCart, onSubmitOrder}) => {
     const total = cart.reduce((acc, item) => acc + item.pizza.precio * item.quantity, 0);
 
     return (

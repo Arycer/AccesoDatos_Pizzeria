@@ -15,12 +15,15 @@ const ClientHomepage: React.FC = () => {
             <section className={styles.content}>
                 <h2>Las Mejores Pizzas de la Ciudad</h2>
                 <p>
-                    En Pizzeria Deliciosa, cada pizza es una obra de arte culinaria. Utilizamos solo ingredientes naturales,
-                    frescos y de la mejor calidad para crear sabores únicos e inolvidables. Nuestra masa es elaborada a mano y horneada en
+                    En Pizzeria Deliciosa, cada pizza es una obra de arte culinaria. Utilizamos solo ingredientes
+                    naturales,
+                    frescos y de la mejor calidad para crear sabores únicos e inolvidables. Nuestra masa es elaborada a
+                    mano y horneada en
                     horno de leña, otorgándole ese toque crujiente y delicioso que tanto te gusta.
                 </p>
                 <p>
-                    Desde la clásica Margarita hasta creaciones innovadoras, tenemos una pizza para cada gusto. Nuestras recetas resaltan lo mejor de la
+                    Desde la clásica Margarita hasta creaciones innovadoras, tenemos una pizza para cada gusto. Nuestras
+                    recetas resaltan lo mejor de la
                     naturaleza, ofreciéndote una experiencia gourmet que cuida tu paladar y tu bienestar.
                 </p>
                 <h2>¿Por qué elegirnos?</h2>
