@@ -59,7 +59,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/generateToken")
+    @PostMapping("/login")
     public ResponseEntity<?> authenticateAndGetToken(@RequestBody AuthRequest authRequest, HttpServletResponse response) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())

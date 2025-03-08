@@ -1,5 +1,7 @@
 import {jwtDecode} from "jwt-decode";
 
+export const baseURL = "http://localhost:8080";
+
 export interface LoginResponse {
     token: string;
     redirectUrl?: string;
@@ -12,12 +14,14 @@ export interface User {
 
 export const loginUser = async (username: string, password: string): Promise<LoginResponse> => {
     try {
-        const response = await fetch("http://localhost:8080/auth/generateToken", {
+        const response = await fetch(baseURL + "/auth/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({username, password}),
             credentials: "include",
         });
+
+        console.log(response);
 
         if (!response.ok) throw new Error("Error en la autenticación");
         return await response.json();
@@ -29,7 +33,7 @@ export const loginUser = async (username: string, password: string): Promise<Log
 
 export const checkUsernameAvailability = async (username: string): Promise<void> => {
     try {
-        const response = await fetch(`http://localhost:8080/auth/checkUsername?username=${username}`);
+        const response = await fetch(baseURL + `/auth/checkUsername?username=${username}`);
         if (!response.ok) {
             const errorText = await response.text();
             throw new Error(errorText || "El nombre de usuario ya está en uso.");
@@ -43,7 +47,7 @@ export const registerUser = async (username: string, email: string, password: st
     const userData = {username, email, password, roles: role};
 
     try {
-        const response = await fetch("http://localhost:8080/auth/register", {
+        const response = await fetch(baseURL +  "/auth/register", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userData),
@@ -69,7 +73,7 @@ export const setAuthToken = (token: string): void => {
 
 export const getUserData = async (token: string): Promise<User> => {
     try {
-        const response = await fetch('http://localhost:8080/auth/me', {
+        const response = await fetch(baseURL + '/auth/me', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,

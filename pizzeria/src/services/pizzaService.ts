@@ -1,3 +1,5 @@
+import {baseURL} from "./authService.ts";
+
 export interface Pizza {
     id?: string;
     nombre: string;
@@ -13,7 +15,7 @@ export interface Pizza {
  */
 export const getAllPizzas = async (): Promise<Pizza[]> => {
     try {
-        const response = await fetch("http://localhost:8080/api/pizzas/all", {
+        const response = await fetch(baseURL + "/api/pizzas/all", {
             method: "GET",
             headers: {"Content-Type": "application/json"},
         });
@@ -33,7 +35,7 @@ export const getAllPizzas = async (): Promise<Pizza[]> => {
 export const getAvailablePizzas = async (): Promise<Pizza[]> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pizzas/available", {
+        const response = await fetch(baseURL + "/api/pizzas/available", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -56,7 +58,7 @@ export const getAvailablePizzas = async (): Promise<Pizza[]> => {
  */
 export const getPizzaById = async (id: string): Promise<Pizza> => {
     try {
-        const response = await fetch(`http://localhost:8080/api/pizzas/${id}`, {
+        const response = await fetch(baseURL + `/api/pizzas/${id}`, {
             method: "GET",
             headers: {"Content-Type": "application/json"},
         });
@@ -77,7 +79,7 @@ export const getPizzaById = async (id: string): Promise<Pizza> => {
 export const addPizza = async (pizza: Pizza): Promise<Pizza> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:8080/api/pizzas/add", {
+        const response = await fetch(baseURL + "/api/pizzas/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -104,7 +106,7 @@ export const addPizza = async (pizza: Pizza): Promise<Pizza> => {
 export const updatePizza = async (id: string, pizza: Pizza): Promise<Pizza> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`http://localhost:8080/api/pizzas/${id}`, {
+        const response = await fetch(baseURL + `/api/pizzas/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -130,7 +132,7 @@ export const updatePizza = async (id: string, pizza: Pizza): Promise<Pizza> => {
 export const deletePizza = async (id: string): Promise<void> => {
     try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`http://localhost:8080/api/pizzas/${id}`, {
+        const response = await fetch(baseURL + `/api/pizzas/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

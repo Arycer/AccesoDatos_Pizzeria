@@ -48,7 +48,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                         // Público
-                        .requestMatchers("/auth/checkUsername/**", "/auth/login", "/", "/auth/welcome", "/auth/generateToken", "/auth/register").permitAll()
+                        .requestMatchers("/auth/checkUsername", "/auth/register", "/auth/login").permitAll()
 
                         // Administrador
                         .requestMatchers(HttpMethod.GET, "/api/pizzas/**").permitAll()
